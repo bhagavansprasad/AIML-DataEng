@@ -18,7 +18,7 @@ The task involves creating a scalable and automated data pipeline to continuousl
    - Implement scheduling tools like cron jobs to ensure the system continuously updates the data.
 
 1. **Architecture diagram**:
-![Architecture diagram](./arch-dig.png)
+![Architecture diagram](./resource/arch-diagram.png)
 
 
 ## **Key Deliverables**:
