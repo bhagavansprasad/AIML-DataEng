@@ -1,0 +1,37 @@
+Here is the sequence diagram in PlantUML format for **Phase 2** of the task:
+
+### Task: Downloading Documents Based on Updated Links
+
+```plaintext
+@startuml
+actor Researcher as R
+
+R -> DocumentDownloader: Initiate document download process
+DocumentDownloader -> TextFile: Read list of links from text file
+TextFile --> DocumentDownloader: Provide list of links
+DocumentDownloader -> WebServer: Request document from link (one by one)
+WebServer --> DocumentDownloader: Return document (PDF or file)
+DocumentDownloader -> LocalStorage: Check if document is already downloaded
+LocalStorage --> DocumentDownloader: Provide document version information
+DocumentDownloader -> DocumentDownloader: Compare versions (new vs old)
+alt If new version or different document
+    DocumentDownloader -> LocalStorage: Download and save the document
+    LocalStorage --> DocumentDownloader: Confirm document saved
+else If no update
+    DocumentDownloader -> DocumentDownloader: Skip downloading
+end
+
+R -> DocumentDownloader: Verify completion of download
+DocumentDownloader --> R: Provide status and download summary
+
+@enduml
+```
+
+### Explanation:
+- **Researcher (R)**: Initiates the document download process.
+- **DocumentDownloader**: The tool or script used for downloading documents.
+- **TextFile**: The file containing the list of document links.
+- **WebServer**: The server hosting the documents.
+- **LocalStorage**: The local storage where downloaded documents are saved.
+
+This sequence diagram describes the process of reading the list of links from a text file, checking if the documents are updated, and downloading them only if they are different or new.

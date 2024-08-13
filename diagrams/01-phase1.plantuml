@@ -1,0 +1,24 @@
+
+' ### Task: Web Scraping and Generating List of Links
+@startuml
+actor Researcher as R
+
+R -> WebScraper: Initiate web scraping process
+WebScraper -> WebServer: Send request for web page content
+WebServer --> WebScraper: Return web page content (HTML)
+WebScraper -> WebScraper: Parse HTML to find PDF/document links
+WebScraper -> TextFile: Write links to a text file
+TextFile --> WebScraper: Confirm links saved
+
+R -> WebScraper: Verify completion of scraping
+WebScraper --> R: Provide status and link count
+
+@enduml
+
+' ### Explanation:
+' - **Researcher (R)**: Initiates the web scraping process.
+' - **WebScraper**: The tool or script used for scraping the web pages.
+' - **WebServer**: The server hosting the web pages being scraped.
+' - **TextFile**: The file where the extracted links are stored.
+
+' This sequence diagram outlines the flow of actions from initiating the web scraping to saving the extracted links into a text file.

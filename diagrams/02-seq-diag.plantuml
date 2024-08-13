@@ -1,0 +1,22 @@
+
+@startuml
+
+' Researcher (You)
+' Web Browser
+' Language Model (e.g., OpenAI's GPT)
+' Data Sources/Websites
+
+actor Researcher as R
+
+
+R -> WebBrowser: Open web browser
+R -> LanguageModel: Query for reliable sources
+LanguageModel --> R: Provide list of potential sources
+R -> WebBrowser: Access suggested websites
+WebBrowser -> DataSources: Visit website
+DataSources --> WebBrowser: Display content
+WebBrowser --> R: Show website content
+R -> R: Evaluate relevance and reliability
+R -> R: Collect data from selected sources
+R -> R: Finalize list of 5-10 reliable sources
+@enduml
